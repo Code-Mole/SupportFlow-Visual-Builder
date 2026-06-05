@@ -3,6 +3,7 @@ import flowDataRaw from "./data/flow_data.json";
 import Toolbar from "./components/Toolbar/Toolbar";
 import Canvas from "./components/Canvas/Canvas";
 import EditPanel from "./components/EditPanel/EditPanel";
+import Preview from "./components/Preview/Preview";
 import "./App.css";
 
 function buildInitialNodes(raw) {
@@ -71,11 +72,11 @@ export default function App() {
               node={selectedNode}
               onClose={handleClosePanel}
               onUpdate={handleUpdateNode}
-              allNodes={nodes} 
+              allNodes={nodes}
             />
           </>
         ) : (
-          null
+          <Preview nodes={nodes} onExit={() => handleModeChange("editor")} />
         )}
       </div>
     </div>
