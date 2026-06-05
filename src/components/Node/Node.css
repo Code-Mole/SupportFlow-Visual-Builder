@@ -1,0 +1,186 @@
+/* NODE CARDS */
+
+.node {
+  position: absolute;
+  width: var(--node-width);
+  background: var(--surface-2);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-node);
+  cursor: pointer;
+  transition:
+    box-shadow var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-base);
+  user-select: none;
+}
+
+.node:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow:
+    var(--shadow-node),
+    0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Type variants ── */
+.node--start {
+  border-top: 2px solid var(--node-start-color);
+}
+.node--start:hover {
+  box-shadow: var(--shadow-node), 0 0 0 1px var(--node-start-color);
+}
+.node--start.node--selected {
+  border-color: var(--node-start-color);
+  box-shadow: var(--shadow-node), var(--shadow-glow-purple);
+}
+
+.node--question {
+  border-top: 2px solid var(--node-question-color);
+}
+.node--question:hover {
+  box-shadow: var(--shadow-node), 0 0 0 1px var(--node-question-color);
+}
+.node--question.node--selected {
+  border-color: var(--node-question-color);
+  box-shadow: var(--shadow-node), var(--shadow-glow-blue);
+}
+
+.node--end {
+  border-top: 2px solid var(--node-end-color);
+}
+.node--end:hover {
+  box-shadow: var(--shadow-node), 0 0 0 1px var(--node-end-color);
+}
+.node--end.node--selected {
+  border-color: var(--node-end-color);
+  box-shadow: var(--shadow-node), var(--shadow-glow-green);
+}
+
+/* ── Header ── */
+.node__header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 12px 8px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.node__icon {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+.node__icon--start    { background: var(--node-start-dim);    color: var(--node-start-color); }
+.node__icon--question { background: var(--node-question-dim); color: var(--node-question-color); }
+.node__icon--end      { background: var(--node-end-dim);      color: var(--node-end-color); }
+
+.node__type-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.node__selected-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  box-shadow: 0 0 6px var(--accent-blue-glow);
+  flex-shrink: 0;
+}
+
+/* ── Body ── */
+.node__body {
+  padding: 10px 12px;
+}
+
+.node__text {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+/* ── Options ── */
+.node__options {
+  padding: 0 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.node__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: var(--surface-3);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 5px 8px 5px 10px;
+  position: relative;
+}
+
+.node__option-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Connector dots ── */
+.node__connector {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--surface-4);
+  border: 2px solid var(--border-strong);
+  flex-shrink: 0;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+  position: relative;
+  z-index: 2;
+}
+
+.node__connector:hover {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+}
+
+.node__connector--in {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.node__connector--out {
+  flex-shrink: 0;
+}
+
+/* ── End badge ── */
+.node__end-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px 10px;
+  color: var(--node-end-color);
+  font-size: 11px;
+  font-family: var(--font-mono);
+  opacity: 0.7;
+}
