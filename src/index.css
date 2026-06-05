@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+:root {
+  --canvas-bg:         #090b10;
+  --canvas-dot-color:  rgba(255, 255, 255, 0.06);
+  --canvas-dot-size:   1.5px;
+  --canvas-dot-space:  28px;
+
+  --surface-0:   #090b10;
+  --surface-1:   #10131a;
+  --surface-2:   #161b26;
+  --surface-3:   #1e2535;
+  --surface-4:   #252d40;
+
+  --border-subtle:  rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-strong:  rgba(255, 255, 255, 0.18);
+
+  --accent-blue:        #4d8ef8;
+  --accent-blue-dim:    rgba(77, 142, 248, 0.15);
+  --accent-blue-glow:   rgba(77, 142, 248, 0.35);
+  --accent-cyan:        #00d4cc;
+  --accent-cyan-dim:    rgba(0, 212, 204, 0.12);
+
+  --node-start-color:    #8b5cf6;
+  --node-start-dim:      rgba(139, 92, 246, 0.15);
+  --node-start-glow:     rgba(139, 92, 246, 0.40);
+
+  --node-question-color: #4d8ef8;
+  --node-question-dim:   rgba(77, 142, 248, 0.12);
+  --node-question-glow:  rgba(77, 142, 248, 0.35);
+
+  --node-end-color:      #22c55e;
+  --node-end-dim:        rgba(34, 197, 94, 0.12);
+  --node-end-glow:       rgba(34, 197, 94, 0.35);
+
+  --connector-color:  rgba(148, 163, 184, 0.45);
+  --connector-hover:  rgba(77, 142, 248, 0.80);
+
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  --text-primary:   #f0f4ff;
+  --text-secondary: #8892aa;
+  --text-muted:     #4d566b;
+  --text-accent:    #4d8ef8;
+
+  --toolbar-height: 52px;
+  --panel-width:    320px;
+  --node-width:     230px;
+  --radius-sm:      6px;
+  --radius-md:      10px;
+  --radius-lg:      16px;
+  --radius-pill:    999px;
+
+  --shadow-node:         0 4px 24px rgba(0,0,0,0.45), 0 1px 4px rgba(0,0,0,0.3);
+  --shadow-panel:        -4px 0 32px rgba(0,0,0,0.5);
+  --shadow-glow-blue:    0 0 0 2px var(--accent-blue-glow);
+  --shadow-glow-purple:  0 0 0 2px var(--node-start-glow);
+  --shadow-glow-green:   0 0 0 2px var(--node-end-glow);
+
+  --transition-fast: 0.12s ease;
+  --transition-base: 0.22s ease;
+  --transition-slow: 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-primary);
+  background: var(--surface-0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input, textarea {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--surface-3);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent-blue);
+}
+
+::-webkit-scrollbar        { width: 4px; height: 4px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: var(--surface-4); border-radius: 4px; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
