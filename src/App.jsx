@@ -1,10 +1,9 @@
 import { useState, useCallback } from "react";
 import flowDataRaw from "./data/flow_data.json";
 import Toolbar from "./components/Toolbar/Toolbar";
-import Canvas from "./components/Canvas/Canvas"; 
+import Canvas from "./components/Canvas/Canvas";
+import EditPanel from "./components/EditPanel/EditPanel";
 import "./App.css";
-
-
 
 function buildInitialNodes(raw) {
   return raw.nodes.map((n) => ({ ...n }));
@@ -68,7 +67,12 @@ export default function App() {
               onUpdateNode={handleUpdateNode}
               zoom={zoom}
             />
-            
+            <EditPanel
+              node={selectedNode}
+              onClose={handleClosePanel}
+              onUpdate={handleUpdateNode}
+              allNodes={nodes} 
+            />
           </>
         ) : (
           null
