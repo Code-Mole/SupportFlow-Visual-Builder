@@ -1,8 +1,8 @@
 import { useState, useCallback } from "react";
 import flowDataRaw from "./data/flow_data.json";
-import Toolbar from "./components/Toolbar/Toolbar"; 
+import Toolbar from "./components/Toolbar/Toolbar";
+import Canvas from "./components/Canvas/Canvas"; 
 import "./App.css";
-
 
 
 
@@ -23,7 +23,7 @@ export default function App() {
   }, []);
 
   const handleSelectNode = useCallback((id) => {
-    setSelectedNodeId((prev) => (prev === id ? null : id));
+    setSelectedNodeId(id ?? null);
   }, []);
 
   const handleClosePanel = useCallback(() => {
@@ -58,8 +58,22 @@ export default function App() {
         onResetZoom={handleResetZoom}
         nodes={nodes}
       />
-      
-    
+      <div className="app-body">
+        {mode === "editor" ? (
+          <>
+            <Canvas
+              nodes={nodes}
+              selectedNodeId={selectedNodeId}
+              onSelectNode={handleSelectNode}
+              onUpdateNode={handleUpdateNode}
+              zoom={zoom}
+            />
+            
+          </>
+        ) : (
+          null
+        )}
+      </div>
     </div>
   );
 }
