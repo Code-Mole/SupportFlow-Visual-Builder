@@ -46,6 +46,7 @@ export default function App() {
   }, []);
 
   const selectedNode = nodes.find((n) => n.id === selectedNodeId) ?? null;
+  const isPanelOpen = selectedNode !== null; 
 
   return (
     <div className="app-shell">
@@ -67,6 +68,7 @@ export default function App() {
               onSelectNode={handleSelectNode}
               onUpdateNode={handleUpdateNode}
               zoom={zoom}
+              isPanelOpen={isPanelOpen}
             />
             <EditPanel
               node={selectedNode}

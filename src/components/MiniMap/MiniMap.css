@@ -1,21 +1,30 @@
-/* MINI MAP */
+/* ============================================
+   MINI MAP
+   ============================================ */
 
 .minimap {
   position: absolute;
   bottom: 20px;
-  right: 20px;
+  right: 20px;                         /* default: near right edge */
   background: var(--surface-1);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 8px 32px rgba(0,0,0,0.5),
     0 0 0 1px var(--border-subtle);
   overflow: hidden;
   z-index: 20;
-  transition: width var(--transition-slow), height var(--transition-slow);
   animation: minimap-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 0.3s;
   opacity: 0;
+
+  /* FIX: smooth slide when panel opens/closes */
+  transition: right var(--transition-slow);
+}
+
+/* FIX: when edit panel is open shift minimap left by panel width + gap */
+.minimap--panel-open {
+  right: calc(var(--panel-width) + 20px);
 }
 
 @keyframes minimap-in {
@@ -105,7 +114,6 @@
   to   { opacity: 1; }
 }
 
-/* ── Canvas ── */
 .minimap__canvas {
   display: block;
   border-radius: var(--radius-sm);

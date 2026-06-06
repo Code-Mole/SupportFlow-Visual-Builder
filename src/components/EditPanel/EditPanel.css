@@ -11,7 +11,12 @@
   animation: panel-slide-in var(--transition-slow) both;
   overflow: hidden;
   z-index: 50;
+   /* slide in from right when mounted */
+  animation: panel-slide-in var(--transition-slow) both;
 }
+
+ 
+
 
 @keyframes panel-slide-in {
   from { transform: translateX(100%); opacity: 0; }
