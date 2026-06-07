@@ -1,0 +1,153 @@
+/* ============================================
+   MINI MAP
+   ============================================ */
+
+.minimap {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;                         /* default: near right edge */
+  background: var(--surface-1);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.5),
+    0 0 0 1px var(--border-subtle);
+  overflow: hidden;
+  z-index: 20;
+  animation: minimap-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.3s;
+  opacity: 0;
+
+  /* FIX: smooth slide when panel opens/closes */
+  transition: right var(--transition-slow);
+}
+
+/* FIX: when edit panel is open shift minimap left by panel width + gap */
+.minimap--panel-open {
+  right: calc(var(--panel-width) + 20px);
+}
+
+@keyframes minimap-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+/* ── Header ── */
+.minimap__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--surface-2);
+  user-select: none;
+  transition: background var(--transition-fast);
+}
+
+.minimap__header:hover {
+  background: var(--surface-3);
+}
+
+.minimap__header-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.minimap__header-right {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.minimap__indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  box-shadow: 0 0 6px var(--accent-blue-glow);
+  animation: pulse-dot 2.5s ease infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.minimap__title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.minimap__node-count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.minimap__chevron {
+  color: var(--text-muted);
+  transition: transform var(--transition-base);
+  flex-shrink: 0;
+}
+
+.minimap__chevron--flipped {
+  transform: rotate(180deg);
+}
+
+/* ── Body ── */
+.minimap__body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fade-in 0.2s ease both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.minimap__canvas {
+  display: block;
+  border-radius: var(--radius-sm);
+  background: var(--surface-0);
+  border: 1px solid var(--border-subtle);
+  width: 180px;
+  height: 110px;
+}
+
+/* ── Legend ── */
+.minimap__legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2px;
+}
+
+.minimap__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.minimap__legend-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.minimap__legend-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
