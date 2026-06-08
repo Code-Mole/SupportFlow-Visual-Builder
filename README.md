@@ -8,8 +8,8 @@ https://support-flow-builder.vercel.app/
 ## Design File
 https://www.figma.com/design/VxDEaWVEUobWEct0blRfpb/SupportFlow-Builder-%E2%80%94-Design-System?node-id=0-1&t=4QCLTBVf6k2Um8DV-1
 
-## live Screens samples 
-![Image 1](images/image1.png) ![Image 2](images/image2.png) ![Image 3](images/image3.png)
+## live Screen sample 
+![Image 2](images/image2.png) 
 
 ## What It Does
 
@@ -208,14 +208,14 @@ The app reads from `src/data/flow_data.json`. You can export your edited version
 - Vite + React — as specified
 
 ## Submission Checklist
-
+```
  [x] Public GitHub repository
  [x] Commit history shows incremental progress
  [x] Live deployment tested in incognito window
  [x] No restricted libraries used
  [x] Design file linked and set to public view
  [x] README replaced with project documentation
-
+```
 
 ## Author
 
