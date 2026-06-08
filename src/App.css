@@ -17,3 +17,21 @@
 .app-body > * {
   transition: width var(--transition-slow);
 } 
+
+
+@media (max-width: 640px) {
+ 
+  .app-body {
+    flex-direction: column;
+  }
+ 
+  .app-body .edit-panel {
+ 
+    display: none;
+  }
+ 
+  
+  .app--panel-open .canvas {
+    padding-bottom: 70svh;
+  }
+}

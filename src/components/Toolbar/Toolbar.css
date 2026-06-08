@@ -213,3 +213,64 @@
   color: white;
   box-shadow: 0 0 16px var(--accent-blue-glow);
 }
+
+/*  SMALLER SCREEN */
+ 
+/* Hide brand sub-tag on small laptops */
+@media (max-width: 1200px) {
+  .toolbar__brand-sub {
+    display: none;
+  }
+}
+ 
+/* Shrink export button to icon-only on tablets */
+@media (max-width: 900px) {
+  .toolbar__export-btn span {
+    display: none;
+  }
+ 
+  .toolbar__export-btn {
+    padding: 6px 10px;
+  }
+ 
+  .toolbar__zoom-label {
+    min-width: 36px;
+    font-size: 10px;
+  }
+}
+ 
+/* Collapse brand name + compress toolbar on phones */
+@media (max-width: 640px) {
+  .toolbar {
+    padding: 0 10px;
+    gap: 6px;
+  }
+ 
+  .toolbar__brand-name {
+    display: none;
+  }
+ 
+
+  .toolbar__toggle-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+ 
+  .toolbar__toggle-btn span {
+    display: none;
+  }
+ 
+
+  .toolbar__toggle-btn svg {
+    display: block;
+  }
+ 
+  .toolbar__zoom {
+    gap: 0;
+  }
+ 
+  .toolbar__divider {
+    margin: 0 3px;
+  }
+}
+ 

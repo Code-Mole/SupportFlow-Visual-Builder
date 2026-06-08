@@ -363,3 +363,89 @@
   text-align: center;
   letter-spacing: 0.03em;
 }
+
+/* SMALLER SCREENS */
+ 
+/* Narrower panel on tablets */
+@media (max-width: 900px) {
+  .edit-panel {
+    width: var(--panel-width);
+    min-width: var(--panel-width);
+  }
+ 
+  .edit-panel__title {
+    font-size: 12px;
+  }
+ 
+  .edit-panel__section {
+    padding: 12px 14px;
+  }
+}
+ 
+/*
+ * On phones the panel becomes a bottom sheet that slides up
+ * from the bottom and covers ~70% of the screen height.
+ */
+@media (max-width: 640px) {
+  .edit-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-width: 0;
+    height: 70svh;
+    border-left: none;
+    border-top: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    z-index: 200;
+    animation: panel-slide-up var(--transition-slow) both;
+    box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.4);
+  }
+ 
+  @keyframes panel-slide-up {
+    from { transform: translateY(100%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+ 
+  
+  .edit-panel__header::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--border-default);
+  }
+ 
+  .edit-panel__header {
+    position: relative;
+    padding-top: 20px;
+  }
+ 
+  .edit-panel__position-row {
+    gap: 6px;
+  }
+ 
+
+  .edit-panel__select {
+    font-size: 10px;
+  }
+}
+ 
+@media (max-width: 420px) {
+  .edit-panel {
+    height: 80svh;
+  }
+ 
+  .edit-panel__section {
+    padding: 10px 12px;
+  }
+ 
+  .edit-panel__textarea {
+    font-size: 12px;
+  }
+}

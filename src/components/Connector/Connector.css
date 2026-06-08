@@ -38,3 +38,12 @@
 .connector__group:hover marker#arrowhead path {
   fill: var(--connector-hover);
 }
+
+/* SMALLER SCREEN */
+ 
+
+@media (max-width: 900px) {
+  .connector__hit {
+    stroke-width: 20px;
+  }
+}

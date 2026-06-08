@@ -400,3 +400,98 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
+
+/*  SMALLER SCREENS */
+ 
+@media (max-width: 900px) {
+  .preview__stage {
+    padding: 20px 12px 12px;
+  }
+ 
+  .preview__window {
+    max-height: 520px;
+  }
+}
+ 
+@media (max-width: 640px) {
+  /* Top bar: hide "Back to Editor" text, keep icon */
+  .preview__back-btn span,
+  .preview__restart-top-btn span {
+    display: none;
+  }
+ 
+  .preview__back-btn,
+  .preview__restart-top-btn {
+    padding: 6px 8px;
+  }
+ 
+  .preview__topbar-label {
+    font-size: 12px;
+  }
+ 
+  .preview__stage {
+    padding: 12px 8px 8px;
+    gap: 8px;
+  }
+ 
+  .preview__window {
+    max-width: 100%;
+    max-height: none;
+    flex: 1;
+    border-radius: var(--radius-md);
+  }
+ 
+  .preview__messages {
+    padding: 14px 12px;
+    gap: 10px;
+  }
+ 
+  .preview__bubble {
+    font-size: 12px;
+    padding: 8px 12px;
+    max-width: 82%;
+  }
+ 
+  .preview__options {
+    padding: 10px 12px 12px;
+  }
+ 
+  .preview__option-btn {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+ 
+  .preview__tracker {
+    padding: 5px 12px;
+    gap: 6px;
+  }
+ 
+  .preview__tracker-label {
+    font-size: 9px;
+  }
+}
+ 
+@media (max-width: 420px) {
+  .preview__topbar {
+    padding: 0 10px;
+  }
+ 
+  .preview__window-header {
+    padding: 10px 12px;
+  }
+ 
+  .preview__bubble {
+    max-width: 88%;
+  }
+ 
+  /* Stack end-state buttons nicely */
+  .preview__end-state {
+    padding: 16px 12px;
+    gap: 8px;
+  }
+ 
+  .preview__restart-btn {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}

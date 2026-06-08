@@ -65,6 +65,22 @@
   --transition-slow: 0.38s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+@media (max-width: 900px) {
+  :root {
+    --panel-width: 280px;
+    --toolbar-height: 48px;
+    --node-width: 200px;
+  }
+}
+ 
+@media (max-width: 640px) {
+  :root {
+    --panel-width: 100%;
+    --toolbar-height: 44px;
+    --node-width: 180px;
+  }
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;

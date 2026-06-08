@@ -66,3 +66,29 @@
   z-index: 10;
   opacity: 0.6;
 }
+
+/* SMALLER SCREENS */
+ 
+/* Shrink zoom badge and hint on small screens */
+@media (max-width: 900px) {
+  .canvas__zoom-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+    bottom: 40px;
+  }
+ 
+  .canvas__hint {
+    font-size: 9px;
+  }
+}
+ 
+/* Hide hint label entirely on phones — too cluttered */
+@media (max-width: 640px) {
+  .canvas__hint {
+    display: none;
+  }
+ 
+  .canvas__zoom-badge {
+    bottom: 12px;
+  }
+}
