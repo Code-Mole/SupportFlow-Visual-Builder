@@ -48,7 +48,7 @@ SupportFlow Builder lets support managers visually build, edit, and test automat
 - Download the current flow state (including any edits) as `flow_data.json`
 
 ## Tech Stack
-
+```
 | Layer           | Choice         |
 |-----------------|----------------|
 | Framework       | React 18 via Vite |
@@ -57,8 +57,9 @@ SupportFlow Builder lets support managers visually build, edit, and test automat
 | Mini map        | HTML Canvas 2D API |
 | State           | React useState / useCallback (no Redux, no Zustand) |
 | Data            | JSON file loaded at startup, edited in memory |
-
+```
 ## Architecture
+```
   SupportFlow-Visual-Builder/
   ├── src/
   | ├── assets/
@@ -104,7 +105,7 @@ SupportFlow Builder lets support managers visually build, edit, and test automat
   ├── package.json
   ├── README.md
   ├── vite.config.js
-   
+   ```
 **State lives entirely in `App.jsx`** and flows down as props. All node edits are in-memory — no backend, no localStorage. The `nodes` array is the single source of truth shared across the canvas, edit panel, preview, and minimap.
 
 ---
